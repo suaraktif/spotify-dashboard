@@ -126,3 +126,13 @@ top_5_artist_df = artist_streams.sort_values(by=['streams'], ascending=False).re
 top_5_artist_df.head()
 
 create_bar_plot(figsize_x=12, figsize_y=8, x_value="streams", y_value="artist(s)_name", data_value=top_5_artist_df.head(5), labels_value=top_5_artist_df["streams"].head(5), plt_title="Artis dengan jumlah pemutaran terbanyak di Spotify sepanjang masa", plt_xlabel="Streams", plt_ylabel="Artist Name")
+
+import subprocess
+import streamlit as st
+
+# Mendapatkan versi Python menggunakan subprocess
+try:
+    python_version = subprocess.check_output(["python", "--version"]).decode("utf-8")
+    st.write(f"Versi Python yang digunakan: {python_version}")
+except subprocess.CalledProcessError as e:
+    st.write(f"Gagal mengambil versi Python: {e}")
